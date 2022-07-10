@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import NavBar from "./components/NavBar";
+import SortingVisualizer from "./components/SortingVisualizer";
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+  useEffect(() => {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      setDarkMode(true);
+    } else {
+      setDarkMode(false);
+    }
+  }, []);
+
+  const toggleDarkMode = (checked) => {
+    setDarkMode(checked);
+  };
+  useEffect(() => {
+    darkMode
+      ? document.documentElement.classList.add("dark")
+      : document.documentElement.classList.remove("dark");
+  }, [darkMode]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="h-screen App bg:blue-500 dark:bg-slate-900">
+      <NavBar darkMode={darkMode} toggleDarkMode={toggleDarkMode}>
+        <SortingVisualizer />
+      </NavBar>
     </div>
   );
 }

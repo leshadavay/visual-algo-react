@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //array
+      let posts = [10, 15, 5, 30, 4];
+      let box = ["salom", true, 7];
+
+      //object
+      let car = {
+        name: "Spark",
+        poz: 1,
+        yili: "2028",
+        diagnostika: function () {
+          console.log("---------- diagnostika ------");
+          console.log("nomi: ", this.name);
+          console.log("poz: ", this.poz);
+        },
+      };
+
+      //vizov
+      console.log(posts[0]);
+      console.log(car["name"]);
+      console.log(car.yili);
+
+      let xona = 1;
+      console.log(posts[xona]);
+
+      let keyName = "yili";
+      console.log(car[keyName]);
+
+      function display() {
+        console.log("----------display ------");
+        console.log("car nomi ", car.name);
+        console.log("car pozitsiya ", car.poz);
+        console.log("car yili ", car.yili);
+      }
+
+      display();
+      car.diagnostika();
+    </script>
+  </body>
+</html>
